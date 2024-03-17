@@ -113,24 +113,24 @@ function endQuiz() {
   finalScoreEl.style.marginBottom = "20px"; // Increase space below final score
   endScreenEl.appendChild(finalScoreEl);
 
-  // Create form for initials
-  var initialsFormEl = document.createElement("form");
-  initialsFormEl.setAttribute("id", "initials-form");
-  initialsFormEl.innerHTML =
+  // Create form for names
+  var namesFormEl = document.createElement("form");
+  namesFormEl.setAttribute("id", "names-form");
+  namesFormEl.innerHTML =
     "<div style='margin-top: 20px; margin-bottom: 15px;'>" + // Add margin to top and bottom
-    "<label for='initials' style='margin-right: 5px;'>Enter name:</label>" +
-    "<input type='text' id='initials' name='initials' style='margin-right: 5px;'>" +
+    "<label for='names' style='margin-right: 5px;'>Enter name:</label>" +
+    "<input type='text' id='names' name='names' style='margin-right: 5px;'>" +
     "</div>" +
     "<button type='submit' class='btn'>Submit</button>";
 
-  endScreenEl.appendChild(initialsFormEl);
+  endScreenEl.appendChild(namesFormEl);
 
   // Append end screen
   quizBoxEl.innerHTML = "";
   quizBoxEl.appendChild(endScreenEl);
 
   // Add event listener for form submission
-  initialsFormEl.addEventListener("submit", saveHighscore);
+  namesFormEl.addEventListener("submit", saveHighscore);
 }
 
 function clockTick() {
@@ -148,30 +148,30 @@ function clockTick() {
 function saveHighscore(event) {
   event.preventDefault(); // Prevent default form submission behavior
 
-  var initialsEl = document.getElementById("initials");
-  var initials = initialsEl.value.trim();
+  var namesEl = document.getElementById("names");
+  var names = namesEl.value.trim();
 
-  // Check if initials contain only letters or hyphens, and not just a hyphen
-  if (!/^[A-Za-z-]+$/.test(initials) || initials === "-") {
+  // Check if names contain only letters or hyphens, and not just a hyphen
+  if (!/^[A-Za-z-]+$/.test(names) || names === "-") {
     alert("Name must contain only letters and hyphens (if necessary).");
     return;
   }
 
   // Replace multiple hyphens with a single one, if necessary
-  initials = initials.replace(/-+/g, "-");
+  names = names.replace(/-+/g, "-");
 
-  // Split by hyphen, capitalize first letter of each part, and join back with hyphen
-  initials = initials
+  // Split by hyphen, capitalise first letter of each part, and join back with hyphen
+  names = names
     .split("-")
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
     .join("-");
 
-  if (initials !== "") {
+  if (names !== "") {
     var highscores =
       JSON.parse(window.localStorage.getItem("highscores")) || [];
 
     var newScore = {
-      initials: initials,
+      names: names,
       score: time,
     };
 
@@ -182,7 +182,7 @@ function saveHighscore(event) {
     // Redirect to highscores page
     window.location.href = "highscores.html";
   } else {
-    // Prompt user for initials again or give an error message
+    // Prompt user for names again or give an error message
     alert("Please enter your name.");
   }
 }
@@ -190,7 +190,5 @@ function saveHighscore(event) {
 // User clicks button to start quiz
 startBtn.onclick = startQuiz;
 
-// User clicks button to submit initials
-document
-  .getElementById("initials-form")
-  .addEventListener("submit", saveHighscore);
+// User clicks button to submit names
+document.getElementById("names-form").addEventListener("submit", saveHighscore);

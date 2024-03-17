@@ -68,7 +68,7 @@ Prepare to test your knowledge with this interactive quiz application! The homep
 
 A timer in the top right corner keeps track of your remaining time. Your score is determined by the time remaining when you answer the 10th question. Running out of time before completing the quiz unfortunately results in a zero score.
 
-Once you finish the quiz, you can input your name to see your performance displayed on the High Score page. This page shows a ranked list of previous scores, with the highest scorers at the top. You can revisit this page anytime to admire your achievement or even clear the board and start afresh. Additionally, clicking "View High Scores" on the main page takes you directly to this page.
+Once you finish the quiz, you can input your name to see your performance displayed on the High Score page. This page shows a ranked list of previous scores, with the highest scorers at the top. You can revisit this page anytime to admire your achievement or even clear the board and start afresh. Additionally, clicking "View Highscores" on the main page takes you directly to this page.
 
 ## Output
 
