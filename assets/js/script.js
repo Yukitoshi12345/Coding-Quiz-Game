@@ -138,6 +138,7 @@ function clockTick() {
 
   // Check if user ran out of time
   if (time <= 0) {
+    time = 0;
     endQuiz();
   }
 }
