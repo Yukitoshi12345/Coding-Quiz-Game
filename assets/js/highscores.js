@@ -1,42 +1,45 @@
 document.addEventListener("DOMContentLoaded", () => {
   const highscoresList = document.getElementById("highscores-list");
-  const playAgainBtn = document.getElementById("play-again-btn");
   const clearHighscoresBtn = document.getElementById("clear-highscores-btn");
 
-  // Function to load high scores from local storage
   function loadHighScores() {
     var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
-    highscores.sort((a, b) => b.score - a.score); // Sort by score from high to low
+    highscores.sort((a, b) => b.score - a.score);
 
-    var highscoresList = document.getElementById("highscores-list");
+    // Limit to top 10 high scores
+    highscores = highscores.slice(0, 10);
 
-    // Clear existing list
-    highscoresList.innerHTML = "";
+    highscoresList.innerHTML = ""; // Clear existing list
 
-    // Create list items for each score
-    highscores.forEach(function (score) {
+    // Create list items for each score and apply formatting
+    highscores.forEach(function (score, index) {
       var listItem = document.createElement("li");
-      listItem.textContent = score.initials + " - " + score.score;
+      listItem.textContent = `${index + 1}. ${score.initials} - ${score.score}`;
+      listItem.style.padding = "10px";
+      listItem.style.borderBottom = "1px solid #ccc"; // Separator line
+      listItem.style.listStyleType = "none"; // Remove bullets
+
+      // Alternate background colors for the list items
+      if (index % 2 === 0) {
+        listItem.style.backgroundColor = "rgba(211, 211, 211, 0.5)"; // Light grey for even indices
+      } else {
+        listItem.style.backgroundColor = "rgba(255, 255, 255, 0.5)"; // White for odd indices
+      }
+
       highscoresList.appendChild(listItem);
     });
   }
 
-  // Call loadHighScores when the page loads
-  document.addEventListener("DOMContentLoaded", loadHighScores);
-
-  // Function to clear high scores from local storage
   function clearHighScores() {
     localStorage.removeItem("highscores");
-    loadHighScores(); // Refresh the list
+    loadHighScores();
   }
 
-  // Event listener for 'Play Again' button
-  playAgainBtn.addEventListener("click", () => {
-    window.location.href = "index.html"; // Redirect to the home page to start the quiz
-  });
+  if (clearHighscoresBtn) {
+    clearHighscoresBtn.addEventListener("click", clearHighScores);
+  } else {
+    console.error("Button with ID 'clear-highscores-btn' not found.");
+  }
 
-  // Event listener for 'Reset Highscores' button
-  clearHighscoresBtn.addEventListener("click", clearHighScores);
-
-  loadHighScores(); // Initial load of high scores
+  loadHighScores();
 });

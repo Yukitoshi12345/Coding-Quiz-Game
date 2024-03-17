@@ -114,6 +114,7 @@ function endQuiz() {
 
   // Create form for initials
   var initialsFormEl = document.createElement("form");
+  initialsFormEl.setAttribute("id", "initials-form"); // Adding an ID here
   initialsFormEl.innerHTML =
     "<div style='margin-bottom: 10px;'>" +
     "<label for='initials' style='margin-right: 5px;'>Enter initials:</label>" +
@@ -149,6 +150,21 @@ function saveHighscore(event) {
   var initialsEl = document.getElementById("initials");
   var initials = initialsEl.value.trim();
 
+  // Check if initials contain only letters or hyphens, and not just a hyphen
+  if (!/^[A-Za-z-]+$/.test(initials) || initials === "-") {
+    alert("Name must contain only letters and hyphens (if necessary).");
+    return;
+  }
+
+  // Replace multiple hyphens with a single one, if necessary
+  initials = initials.replace(/-+/g, "-");
+
+  // Split by hyphen, capitalize first letter of each part, and join back with hyphen
+  initials = initials
+    .split("-")
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
+    .join("-");
+
   if (initials !== "") {
     var highscores =
       JSON.parse(window.localStorage.getItem("highscores")) || [];
@@ -164,6 +180,9 @@ function saveHighscore(event) {
 
     // Redirect to highscores page
     window.location.href = "highscores.html";
+  } else {
+    // Prompt user for initials again or give an error message
+    alert("Please enter your name.");
   }
 }
 
