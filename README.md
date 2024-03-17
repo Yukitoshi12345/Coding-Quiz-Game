@@ -7,6 +7,7 @@ To test our newly developed JavaScript skills and preparation for future coding 
 
 - [User Story](#user-story)
 - [Acceptance Criteria](#acceptance-criteria)
+- [Screenshot](#screenshot)
 - [Video](#video)
 - [Explanation of Video](#explanation-of-video)
 - [Output](#output)
@@ -36,6 +37,21 @@ THEN the game is over
 WHEN the game is over
 THEN I can save my initials and my score
 ```
+
+## Screenshot
+
+<b>Main Page:</b>
+![](./assets/images/mainpage.png)
+
+<br>
+
+<b>Question Page:</b>
+![](./assets/images/questions.png)
+
+<br>
+
+<b> Highscore Page: </b>
+![](./assets/images/highscore.png)
 
 ## Video
 
