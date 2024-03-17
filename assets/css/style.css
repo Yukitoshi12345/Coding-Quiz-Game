@@ -119,6 +119,21 @@ button:hover {
   font-weight: bold;
 }
 
+/* Add spacing above the buttons */
+.quiz-box > a,
+.quiz-box > button {
+  margin-top: 20px; /* Adjust the value as needed */
+}
+
+/* If you want the buttons to be centered below the list */
+.quiz-box {
+  text-align: center; /* This will center the buttons */
+}
+
+ol#highscores-list {
+  padding-bottom: 20px; /* This adds space below the high score list */
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   nav ul {

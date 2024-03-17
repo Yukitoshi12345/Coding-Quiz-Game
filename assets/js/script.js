@@ -110,14 +110,15 @@ function endQuiz() {
   // Show final score
   var finalScoreEl = document.createElement("h2");
   finalScoreEl.textContent = "Your final score is " + time + ".";
+  finalScoreEl.style.marginBottom = "20px"; // Increase space below final score
   endScreenEl.appendChild(finalScoreEl);
 
   // Create form for initials
   var initialsFormEl = document.createElement("form");
-  initialsFormEl.setAttribute("id", "initials-form"); // Adding an ID here
+  initialsFormEl.setAttribute("id", "initials-form");
   initialsFormEl.innerHTML =
-    "<div style='margin-bottom: 10px;'>" +
-    "<label for='initials' style='margin-right: 5px;'>Enter initials:</label>" +
+    "<div style='margin-top: 20px; margin-bottom: 15px;'>" + // Add margin to top and bottom
+    "<label for='initials' style='margin-right: 5px;'>Enter name:</label>" +
     "<input type='text' id='initials' name='initials' style='margin-right: 5px;'>" +
     "</div>" +
     "<button type='submit' class='btn'>Submit</button>";
