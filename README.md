@@ -60,7 +60,7 @@ THEN I can save my initials and my score
 
 ## Video
 
-![]()
+![](./assets/videos/screenrecord.gif)
 
 ## Explanation of Video
 
