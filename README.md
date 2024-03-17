@@ -58,3 +58,7 @@ The project was uploaded to [GitHub](https://github.com/) at the following repos
 
 You can access the deployed application with the GitHub Pages link:
 [https://yukitoshi12345.github.io/Coding-Quiz-Game/](https://yukitoshi12345.github.io/Coding-Quiz-Game/)
+
+## License
+
+This project is licensed under the [MIT License](https://github.com/Yukitoshi12345/Coding-Quiz-Game/blob/main/LICENSE).
