@@ -50,6 +50,11 @@ THEN I can save my initials and my score
 
 <br>
 
+<b> End Screen Page: </b>
+![](./assets/images/endscreenpage.png)
+
+<br>
+
 <b> Highscore Page: </b>
 ![](./assets/images/highscore.png)
 
