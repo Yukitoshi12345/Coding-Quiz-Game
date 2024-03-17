@@ -9,5 +9,28 @@
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <header>
+        <nav>
+          <ul>
+            <li><a href="#" id="highscores-link">View Highscores</a></li>
+            <li id="timer">Time Left: <span id="time">60</span></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="quiz-box">
+          <h1>Coding Quiz Game</h1>
+          <p class="instructions">
+            Try to answer the following code-related questions before the timer
+            runs out! Any incorrect answers will incur a penalty of 10
+            seconds... so be careful, but not too careful.
+          </p>
+          <button id="start-quiz-btn">Start Quiz</button>
+        </div>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
