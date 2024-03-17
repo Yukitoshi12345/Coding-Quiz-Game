@@ -39,6 +39,8 @@ THEN I can save my initials and my score
 
 ## Video
 
+![]()
+
 ## Explanation of Video
 
 Prepare to test your knowledge with this interactive quiz application! The homepage guides you through the process: click "Start Quiz" to begin facing 10 multiple-choice questions. Choose wisely as you have 100 seconds to answer all of them. Selecting the correct answer prompts a feedback message saying "correct!", while an incorrect answer prompts a feedback message saying "wrong!" and deducts 10 seconds from your remaining time. Don't worry, you'll automatically proceed to the next question even if you make a mistake.
