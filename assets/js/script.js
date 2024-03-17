@@ -1,0 +1,175 @@
+// Assuming questions.js is included before script.js in your index.html
+var currentQuestionIndex = 0;
+var time = questions.length * 10;
+var timerId;
+
+// DOM elements
+var timerEl = document.getElementById("time");
+var startBtn = document.getElementById("start-quiz-btn");
+var quizBoxEl = document.querySelector(".quiz-box");
+
+function startQuiz() {
+  // Hide the start button
+  startBtn.setAttribute("style", "display: none");
+
+  // Start timer
+  timerId = setInterval(clockTick, 1000);
+
+  // Show first question
+  showNextQuestion();
+}
+
+function showNextQuestion() {
+  // Clear out any old question data
+  quizBoxEl.innerHTML = "";
+
+  // Update with current question
+  var currentQuestion = questions[currentQuestionIndex];
+
+  // Create question title element
+  var questionTitleEl = document.createElement("h2");
+  questionTitleEl.textContent = currentQuestion.title;
+  quizBoxEl.appendChild(questionTitleEl);
+
+  // Create container for question choices
+  var choicesContainerEl = document.createElement("div");
+  choicesContainerEl.setAttribute("class", "choices-container");
+
+  // Choice labels corresponding to a), b), c), d)
+  var choiceLabels = ["a", "b", "c", "d"];
+
+  // Create choices buttons
+  currentQuestion.choices.forEach(function (choice, i) {
+    var choiceButton = document.createElement("button");
+    choiceButton.setAttribute("class", "btn choice-btn");
+    choiceButton.setAttribute("value", choice);
+    // Prepend the choice label
+    choiceButton.textContent = choiceLabels[i] + ") " + choice;
+    choiceButton.onclick = questionClick;
+    choicesContainerEl.appendChild(choiceButton);
+  });
+
+  quizBoxEl.appendChild(choicesContainerEl);
+}
+
+function questionClick() {
+  var correct = questions[currentQuestionIndex].answer === this.value;
+  if (!correct) {
+    // Penalize time
+    time -= 10;
+    if (time < 0) {
+      time = 0;
+    }
+    // Display new time on page
+    timerEl.textContent = time;
+    displayAnswerFeedback("Wrong!");
+  } else {
+    displayAnswerFeedback("Correct!");
+  }
+
+  // Move to next question
+  currentQuestionIndex++;
+
+  // Wait a bit before moving to the next question
+  setTimeout(function () {
+    if (currentQuestionIndex === questions.length) {
+      endQuiz();
+    } else {
+      showNextQuestion();
+    }
+  }, 1000);
+}
+
+function displayAnswerFeedback(feedback) {
+  // Remove any old feedback
+  var oldFeedback = document.querySelector(".feedback");
+  if (oldFeedback) {
+    oldFeedback.remove();
+  }
+
+  // Display feedback
+  var feedbackEl = document.createElement("div");
+  feedbackEl.textContent = feedback;
+  feedbackEl.setAttribute("class", "feedback");
+  quizBoxEl.appendChild(feedbackEl);
+
+  // Remove feedback after 1 second
+  setTimeout(function () {
+    feedbackEl.remove();
+  }, 1000);
+}
+
+function endQuiz() {
+  // Stop timer
+  clearInterval(timerId);
+
+  // Show end screen
+  var endScreenEl = document.createElement("div");
+  endScreenEl.setAttribute("class", "end-screen");
+
+  // Show final score
+  var finalScoreEl = document.createElement("h2");
+  finalScoreEl.textContent = "Your final score is " + time + ".";
+  endScreenEl.appendChild(finalScoreEl);
+
+  // Create form for initials
+  var initialsFormEl = document.createElement("form");
+  initialsFormEl.innerHTML =
+    "<div style='margin-bottom: 10px;'>" +
+    "<label for='initials' style='margin-right: 5px;'>Enter initials:</label>" +
+    "<input type='text' id='initials' name='initials' style='margin-right: 5px;'>" +
+    "</div>" +
+    "<button type='submit' class='btn'>Submit</button>";
+
+  endScreenEl.appendChild(initialsFormEl);
+
+  // Append end screen
+  quizBoxEl.innerHTML = "";
+  quizBoxEl.appendChild(endScreenEl);
+
+  // Add event listener for form submission
+  initialsFormEl.addEventListener("submit", saveHighscore);
+}
+
+function clockTick() {
+  // Update time
+  time--;
+  timerEl.textContent = time;
+
+  // Check if user ran out of time
+  if (time <= 0) {
+    endQuiz();
+  }
+}
+
+function saveHighscore(event) {
+  event.preventDefault(); // Prevent default form submission behavior
+
+  var initialsEl = document.getElementById("initials");
+  var initials = initialsEl.value.trim();
+
+  if (initials !== "") {
+    var highscores =
+      JSON.parse(window.localStorage.getItem("highscores")) || [];
+
+    var newScore = {
+      initials: initials,
+      score: time,
+    };
+
+    // Save to localstorage
+    highscores.push(newScore);
+    window.localStorage.setItem("highscores", JSON.stringify(highscores));
+
+    // Redirect to highscores page
+    window.location.href = "highscores.html";
+  }
+}
+
+// User clicks button to start quiz
+startBtn.onclick = startQuiz;
+
+// User clicks button to submit initials
+document
+  .getElementById("initials-form")
+  .addEventListener("submit", saveHighscore);

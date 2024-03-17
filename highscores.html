@@ -3,32 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Highscores</title>
-
-    <!--------------Adding Stylesheet-------------->
+    <title>Coding Quiz Game - High Scores</title>
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
     <div class="container">
-      <!-- <header> -->
-      <!-- You can add navigation or header content here if needed -->
-      <!-- </header> -->
+      <header>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </nav>
+      </header>
       <main>
-        <div class="highscores-box">
-          <h1>Highscores</h1>
-          <ol class="highscore-list">
-            <li>Yuki - 39 points</li>
-            <li>Yuki - 37 points</li>
-            <li>Yuki - 27 points</li>
-            <li>Yuki - 26 points</li>
-            <li>Yuki - 19 points</li>
+        <div class="quiz-box">
+          <h1>High Scores</h1>
+          <ol id="highscores-list">
+            <!-- High Scores will be populated here by JavaScript -->
           </ol>
-          <a href="index.html"><button>Go Back</button></a>
-          <button id="clear-highscores-btn">Clear Highscores</button>
+          <a href="index.html"><button>Play Again</button></a>
+          <button id="clear-highscores-btn">Reset Highscores</button>
         </div>
       </main>
     </div>
-    <script src="highscores.js"></script>
+    <script src="assets/js/highscores.js"></script>
   </body>
 </html>

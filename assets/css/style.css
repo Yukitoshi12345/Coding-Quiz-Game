@@ -81,35 +81,6 @@ h1 {
   background: #4a4e69;
 }
 
-/* Main Content Styles */
-.highscores-box {
-  background: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
-  padding: 2rem;
-  border-radius: 8px;
-  width: 90%;
-  max-width: 600px;
-  margin: auto; /* Centers the box */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: relative;
-  top: 0px; /* Decrease this value to move the box higher */
-}
-
-.highscore-list {
-  text-align: left;
-  padding: 0;
-}
-
-.highscore-list li {
-  background-color: #e0e0e0;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  border-radius: 4px;
-}
-
-.highscore-list li:nth-child(odd) {
-  background-color: #d0d0d0;
-}
-
 /* Button Styles */
 button {
   padding: 0.5rem 1rem;
@@ -128,6 +99,26 @@ button:hover {
   background: #4a4e69;
 }
 
+.choice-btn {
+  display: block; /* Set to block to have each choice on a new line */
+  width: 100%; /* Make the buttons extend to the full width of their parent container */
+  text-align: left; /* Align the text to the left */
+  margin-bottom: 10px; /* Add some space between the buttons */
+  padding-left: 20px; /* Add some padding to the left of button text */
+}
+
+/* You might want to also adjust the hover effect for block-level buttons */
+.choice-btn:hover {
+  background: #4a4e69;
+}
+
+/* Feedback message */
+.feedback {
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   nav ul {
@@ -136,9 +127,5 @@ button:hover {
 
   .quiz-box {
     width: 95%;
-  }
-
-  .highscores-box {
-    top: 20px; /* Adjust as needed for smaller screens */
   }
 }
