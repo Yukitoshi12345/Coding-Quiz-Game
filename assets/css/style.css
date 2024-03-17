@@ -57,6 +57,7 @@ main {
 
 h1 {
   color: #3d405b;
+  margin-bottom: 1.5rem;
 }
 
 .instructions {
@@ -80,6 +81,53 @@ h1 {
   background: #4a4e69;
 }
 
+/* Main Content Styles */
+.highscores-box {
+  background: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 600px;
+  margin: auto; /* Centers the box */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  top: 0px; /* Decrease this value to move the box higher */
+}
+
+.highscore-list {
+  text-align: left;
+  padding: 0;
+}
+
+.highscore-list li {
+  background-color: #e0e0e0;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.highscore-list li:nth-child(odd) {
+  background-color: #d0d0d0;
+}
+
+/* Button Styles */
+button {
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  margin-right: 0.5rem;
+  font-size: 1rem;
+  color: white;
+  background: #3d405b;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background: #4a4e69;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   nav ul {
@@ -88,5 +136,9 @@ h1 {
 
   .quiz-box {
     width: 95%;
+  }
+
+  .highscores-box {
+    top: 20px; /* Adjust as needed for smaller screens */
   }
 }
