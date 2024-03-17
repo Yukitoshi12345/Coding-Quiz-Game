@@ -1,2 +1,2 @@
-# Coding-Quiz-Game
-Challenge 4 of Web Development Bootcamp
+<h1 align = "center"> Coding Quiz Game </h1>
+To test our newly developed JavaScript skills and preparation for future coding challenges, I built an interactive, browser-based quiz application. This timed masterpiece, filled with multiple choice questions and sporting a dynamic, responsive UI, required us to code everything from scratch, HTML and CSS included, showcasing the power of pure JavaScript!
