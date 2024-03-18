@@ -52,7 +52,17 @@ function showNextQuestion() {
   quizBoxEl.appendChild(choicesContainerEl);
 }
 
+function setChoiceButtonsEnabled(enabled) {
+  var choiceButtons = document.querySelectorAll(".choice-btn");
+  for (var button of choiceButtons) {
+    button.disabled = !enabled; // If 'enabled' is true, 'disabled' should be false, and vice versa
+  }
+}
+
 function questionClick() {
+  // Disable all choice buttons after a choice is made
+  setChoiceButtonsEnabled(false);
+
   var correct = questions[currentQuestionIndex].answer === this.value;
   if (!correct) {
     // Penalize time
@@ -83,6 +93,8 @@ function questionClick() {
       endQuiz();
     } else {
       showNextQuestion();
+      // Re-enable buttons after moving to the next question
+      setChoiceButtonsEnabled(true);
     }
   }, 1000);
 }
@@ -127,7 +139,7 @@ function endQuiz() {
   namesFormEl.setAttribute("id", "names-form");
   namesFormEl.innerHTML =
     "<div style='margin-top: 20px; margin-bottom: 15px;'>" + // Add margin to top and bottom
-    "<label for='names' style='margin-right: 5px;'>Enter name:</label>" +
+    "<label for='names' style='margin-right: 5px;'>Enter initials:</label>" +
     "<input type='text' id='names' name='names' style='margin-right: 5px;'>" +
     "</div>" +
     "<button type='submit' class='btn'>Submit</button>";
