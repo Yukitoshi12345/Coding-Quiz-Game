@@ -130,7 +130,12 @@ function endQuiz() {
   quizBoxEl.appendChild(endScreenEl);
 
   // Add event listener for form submission
-  namesFormEl.addEventListener("submit", saveHighscore);
+  var namesForm = document.getElementById("names-form");
+  if (namesForm) {
+    namesForm.addEventListener("submit", saveHighscore);
+  } else {
+    console.error("Form with ID 'names-form' not found.");
+  }
 }
 
 function clockTick() {
@@ -191,4 +196,4 @@ function saveHighscore(event) {
 startBtn.onclick = startQuiz;
 
 // User clicks button to submit names
-document.getElementById("names-form").addEventListener("submit", saveHighscore);
+// document.getElementById("names-form").addEventListener("submit", saveHighscore);
