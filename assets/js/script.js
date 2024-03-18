@@ -70,6 +70,13 @@ function questionClick() {
   // Move to next question
   currentQuestionIndex++;
 
+  // Immediately end quiz if the time is zero or below after penalty
+  if (time <= 0) {
+    timerEl.textContent = "0";
+    endQuiz();
+    return; // Add this to exit the function
+  }
+
   // Wait a bit before moving to the next question
   setTimeout(function () {
     if (currentQuestionIndex === questions.length) {
@@ -99,7 +106,9 @@ function displayAnswerFeedback(feedback) {
   }, 1000);
 }
 
+var quizEnded = false;
 function endQuiz() {
+  quizEnded = true;
   // Stop timer
   clearInterval(timerId);
 
@@ -139,13 +148,22 @@ function endQuiz() {
 }
 
 function clockTick() {
+  if (quizEnded) {
+    return; // Stop the clock if the quiz has ended
+  }
   // Update time
   time--;
+  if (time < 0) {
+    time = 0;
+    clearInterval(timerId);
+    timerEl.textContent = time;
+    return; // Add this to stop the function if the time is less than 0
+  }
+
   timerEl.textContent = time;
 
   // Check if user ran out of time
   if (time <= 0) {
-    time = 0;
     endQuiz();
   }
 }
