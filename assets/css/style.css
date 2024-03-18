@@ -145,24 +145,28 @@ ol#highscores-list {
   }
 
   header nav ul {
-    display: flex;
-    flex-direction: row; /* Align items in a row */
-    justify-content: space-between; /* Place content at both ends */
-    align-items: center; /* Center items vertically */
-    padding: 0 15px; /* Add some padding on the left and right */
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 10px;
   }
 
-  header nav ul li {
-    flex: 1; /* Allows each li to grow and take equal space */
-    text-align: center; /* Center the text of each li */
+  /* Targets list items on the index page */
+  .index-page header nav ul li:first-child {
+    text-align: left;
   }
 
-  /* If your li elements have any other style that might conflict with text alignment, reset them here */
-  header nav ul li:first-child {
-    text-align: left; /* Align the first item to the left */
+  .index-page header nav ul li:last-child {
+    text-align: right;
   }
 
-  header nav ul li:last-child {
-    text-align: right; /* Align the last item to the right */
+  /* Targets list items on the highscores page */
+  .highscores-page header nav ul li:first-child {
+    text-align: left;
+  }
+
+  /* Reset text alignment for the home button specifically */
+  .highscores-page header nav ul li {
+    text-align: left;
+    display: block;
   }
 }
