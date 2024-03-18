@@ -171,7 +171,7 @@ function saveHighscore(event) {
       JSON.parse(window.localStorage.getItem("highscores")) || [];
 
     var newScore = {
-      names: names,
+      initials: names,
       score: time,
     };
 
