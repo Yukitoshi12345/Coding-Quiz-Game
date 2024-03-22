@@ -89,7 +89,7 @@ Grade: 100/100
 
 Congratulations on conquering the code quiz challenge! It's fantastic to see your deployed link functioning flawlessly, adhering to all the set criteria. The user interface and user experience (UI/UX) are clear and intuitive, ensuring the questions load smoothly. The penalty system for incorrect answers, implemented by subtracting time, adds a layer of engagement and keeps players on their toes. It's also impressive that you've integrated local storage to power the high scores page, fostering healthy competition among users. The addition of a well-written README and detailed commit messages in your repository demonstrates not only your coding proficiency but also your commitment to clean and well-documented code. This meticulous approach will make it a breeze for anyone to understand your project and future collaborators will surely appreciate it. Keep up the excellent work, Yukitoshi! Your dedication and attention to detail are truly commendable.
 
-- SA, Centralized Grading
+-SA, Centralized Grading
 
 ## License
 
