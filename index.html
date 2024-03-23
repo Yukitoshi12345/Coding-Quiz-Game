@@ -3,34 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Sets the title of the document shown in the browser's title bar or tab -->
     <title>Coding Quiz Game</title>
 
     <!--------------Adding Stylesheet-------------->
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
+  <!-- Body of the document with a class for specific styling -->
   <body class="index-page">
+    <!-- A div container to wrap the content for styling or layout purposes -->
     <div class="container">
       <header>
         <nav>
           <ul>
+            <!-- Navigation link to the highscores page -->
             <li><a href="highscores.html">View Highscores</a></li>
+            <!-- Displays the timer with an initial time of 100 seconds -->
             <li id="timer">Time Left: <span id="time">100</span></li>
           </ul>
         </nav>
       </header>
+      <!-- Represents the main content of the document -->
       <main>
+        <!-- A div to contain the quiz introduction and start button -->
         <div class="quiz-box">
+          <!-- Main heading for the page -->
           <h1>Coding Quiz Game</h1>
+          <!-- Paragraph for quiz instructions with specific styling -->
           <p class="instructions">
             Answer the coding questions correctly within the time limit to
             maximise your score. Each wrong answer deducts 10 seconds. Good
             luck!
           </p>
+          <!-- Button to start the quiz -->
           <button id="start-quiz-btn">Start Quiz</button>
         </div>
       </main>
     </div>
+    <!--------------Adding Scripts -------------->
     <script src="assets/js/questions.js"></script>
     <script src="assets/js/script.js"></script>
   </body>
