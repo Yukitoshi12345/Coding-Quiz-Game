@@ -1,4 +1,8 @@
-/* Global Styles */
+/* ================================= 
+ Global rules and element rules
+==================================== */
+
+/* Global Styles: Setting basic styles and background image */
 body,
 html {
   height: 100%;
@@ -11,19 +15,21 @@ html {
   text-align: center;
 }
 
+/* Container Styles: Defines the main layout container */
 .container {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-/* Header */
+/* Header Styles: Styles for the header including background and text color */
 header {
   padding: 1rem;
   background: #8a817c;
   color: #eae7dc;
 }
 
+/* Navigation Styles: Removes list styles, sets layout and link appearance */
 nav ul {
   list-style: none;
   padding: 0;
@@ -37,7 +43,7 @@ nav a {
   font-weight: bold;
 }
 
-/* Main */
+/* Main Content Styles: Centering the main content and defining its look */
 main {
   flex-grow: 1;
   display: flex;
@@ -46,6 +52,7 @@ main {
   padding: 2rem;
 }
 
+/* Quiz Box Styles: Styling the quiz box with background, shadow, etc. */
 .quiz-box {
   background: white;
   padding: 2rem;
@@ -55,6 +62,7 @@ main {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Heading and Instructions Styles: Color and margin adjustments */
 h1 {
   color: #3d405b;
   margin-bottom: 1.5rem;
@@ -66,6 +74,7 @@ h1 {
   color: #333;
 }
 
+/* Start Quiz Button Styles: Specific styles for the start quiz button */
 #start-quiz-btn {
   padding: 1rem 2rem;
   font-size: 1.2rem;
@@ -81,7 +90,7 @@ h1 {
   background: #4a4e69;
 }
 
-/* Button Styles */
+/* General Button Styles: Applies to all button elements */
 button {
   padding: 0.5rem 1rem;
   margin-top: 1rem;
@@ -99,6 +108,7 @@ button:hover {
   background: #4a4e69;
 }
 
+/* Choice Button Specific Styles: Adjustments for choice buttons */
 .choice-btn {
   display: block; /* Set to block to have each choice on a new line */
   width: 100%; /* Make the buttons extend to the full width of their parent container */
@@ -112,7 +122,7 @@ button:hover {
   background: #4a4e69;
 }
 
-/* Feedback message */
+/* Feedback and Spacing Styles: Feedback message and spacing for elements */
 .feedback {
   margin-top: 1rem;
   font-size: 1rem;
@@ -134,7 +144,7 @@ ol#highscores-list {
   padding-bottom: 20px; /* This adds space below the high score list */
 }
 
-/* Responsive */
+/* Responsive Design Adjustments: Specific adjustments for mobile views */
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
