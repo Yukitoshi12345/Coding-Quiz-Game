@@ -4,29 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coding Quiz Game - High Scores</title>
+
+    <!--------------Adding Stylesheet-------------->
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
+  <!-- The body of the document, with a class for specific styling of the highscores page -->
   <body class="highscores-page">
+    <!-- A container div to wrap the content for styling or layout purposes -->
     <div class="container">
+      <!-- Represents a container for introductory content or a set of navigational links -->
       <header>
+        <!-- Defines navigation links -->
         <nav>
+          <!-- Unordered list to group navigation links -->
           <ul>
+            <!-- Navigation link to go back to the home page -->
             <li><a href="index.html">Home</a></li>
           </ul>
         </nav>
       </header>
+      <!-- Represents the main content of the document -->
       <main>
+        <!-- A div that contains the high scores list and related buttons -->
         <div class="quiz-box">
+          <!-- Main heading for the high scores page -->
           <h1>High Scores</h1>
+          <!-- Ordered list where high scores will be dynamically inserted by JavaScript -->
           <ol id="highscores-list">
             <!-- High Scores will be populated here by JavaScript -->
           </ol>
+          <!-- Link wrapped around a button to play the quiz again -->
           <a href="index.html"><button>Play Again</button></a>
+          <!-- Button to reset the high scores list -->
           <button id="clear-highscores-btn">Reset Highscores</button>
         </div>
       </main>
     </div>
+    <!--------------Adding Scripts -------------->
     <script src="assets/js/highscores.js"></script>
   </body>
 </html>
