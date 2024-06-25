@@ -13,6 +13,9 @@ html {
   background-position: center;
   color: #333;
   text-align: center;
+  position: relative;
+  min-height: 100%;
+  margin: 0;
 }
 
 /* Container Styles: Defines the main layout container */
@@ -180,3 +183,15 @@ ol#highscores-list {
     display: block;
   }
 }
+
+/* Footer Styles: Simple copyright notice */
+footer {
+  padding: 1rem;
+  background: #8a817c;
+  color: #eae7dc;
+  text-align: center; /* Centering the text */
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+

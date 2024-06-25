@@ -11,7 +11,7 @@ To test our newly developed JavaScript skills and preparation for future coding 
 - [Video](#video)
 - [Explanation of Video](#explanation-of-video)
 - [Output](#output)
-- [Installation](#installation)
+- [Deployed Application](#deployed-application)
 - [Central Grader Comments](#central-grader-comments)
 - [License](#license)
 
@@ -75,7 +75,7 @@ Once you finish the quiz, you can input your name to see your performance displa
 
 After tackling the 10-question challenge, your performance will be scored and added to the leaderboard.
 
-## Installation
+## Deployed Application
 
 The project was uploaded to [GitHub](https://github.com/) at the following repository:
 [https://github.com/yukitoshi12345/Coding-Quiz-Game](https://github.com/yukitoshi12345/Coding-Quiz-Game)
